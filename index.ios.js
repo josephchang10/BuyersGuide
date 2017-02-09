@@ -134,13 +134,21 @@ class ProductList extends Component {
     var rightAverageCount = rowData.div[0].div.div[2].div[1].div[1].span.content;
     var rightAverageProgress = parseFloat(rowData.div[0].div.div[2].div[1].div[0].div.style.replace( /[^\d\.]*/g, ''));
     var rightAverage = [rightAverageCount, rightAverageProgress];
-    var recentReleasesDiv = rowData.div[0].div.div[3].div[1].div;
+
     var recentReleases = [];
-    for(i in recentReleasesDiv) {
-      var div = recentReleasesDiv[i];
-      recentReleases.push([div.div[0].content,div.div[2].div.style.replace( /[^\d\.]*/g, ''),div.div[1].a.content]);
+    if(rowData.div[0].div.div[0].div[1].h2.a.content=='MacBook') {
+      //由于MacBook历史上只发布过一版，故特殊对待
+      recentReleases.push([rowData.div[0].div.div[3].div[1].div.div[0].content,rowData.div[0].div.div[3].div[1].div.div[2].div.style.replace( /[^\d\.]*/g, ''),rowData.div[0].div.div[3].div[1].div.div[1].a.content]);
+    }else {
+      var recentReleasesDiv = rowData.div[0].div.div[3].div[1].div;
+
+      for(i in recentReleasesDiv) {
+        var div = recentReleasesDiv[i];
+        recentReleases.push([div.div[0].content,div.div[2].div.style.replace( /[^\d\.]*/g, ''),div.div[1].a.content]);
+      }
+      console.log('recent', recentReleases);
     }
-    console.log('recent', recentReleases);
+
     this.props.navigator.push({
       title: rowData.div[0].div.div[0].div[1].h2.a.content,
       component: ProductView,
