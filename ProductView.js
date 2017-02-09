@@ -9,11 +9,12 @@ import {
 } from 'react-native';
 
 class ProductView extends Component {
-  
-  render() {
+
+  render(){
+    return(
     <View style={styles.container}>
 
-    </View>
+    </View>)
   }
 }
 

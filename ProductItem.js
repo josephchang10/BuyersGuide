@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    resizeMode: 'center',
+    resizeMode: 'contain',
     margin: 20,
+    height: 100,
   },
   info: {
     flex: 3,
@@ -47,10 +48,14 @@ const styles = StyleSheet.create({
 });
 
 export default class ProductItem extends Component {
+  setNativeProps(nativeProps) {
+    //TouchableHighlight required
+  }
+
   render() {
     return (
       <View style={styles.productItem}>
-        <FitImage style={styles.image} source={{uri: this.props.imageURL}}/>
+        <Image style={styles.image} source={{uri: this.props.imageURL}}/>
         <View style={styles.info}>
           <Text style={[styles.suggestion, this.props.specificStyle]}>{this.props.suggestion}</Text>
           <Text style={styles.content}>{this.props.content}</Text>
