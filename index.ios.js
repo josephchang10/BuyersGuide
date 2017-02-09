@@ -75,41 +75,39 @@ class ProductList extends Component {
         this.setState({buyersProducts: buyersProducts, dataSource: this.state.dataSource.cloneWithRows(buyersProducts[0]), isLoading: false});
       });
   }
-  _renderRow(rowData) {
+  translateSuggestion(origin) {
     var suggestion = '';
-    var style = {};
-    switch(rowData.div[0].div.div[0].div[1].div.strong) {
+    var color = '#333333';
+    switch(origin) {
       case 'Neutral':
         suggestion = '可以买';
         break;
       case 'Caution':
         suggestion = '谨慎购买';
-        style = {
-          color: '#FFC125',
-        }
+        color= '#FFC125';
         break;
       case "Don't Buy":
         suggestion = '别买';
-        style = {
-          color: '#AA0D23',
-        }
+        color= '#AA0D23';
         break;
       case 'Buy Now':
         suggestion = '快买';
-        style = {
-          color: '#66BC00',
-        }
+        color= '#66BC00';
         break;
       default:
         suggestion = rowData.class;
         break;
     }
+    return [suggestion, color];
+  }
+  _renderRow(rowData) {
+    var [suggestion, color] = this.translateSuggestion(rowData.div[0].div.div[0].div[1].div.strong);
     return (<TouchableHighlight onPress={() => this.rowPressed(rowData)}
         underlayColor='#dddddd'>
             <ProductItem imageURL={'https:'+ rowData.div[0].div.div[0].div[0].div.img.src}
               content={rowData.div[0].div.div[0].div[1].h2.a.content}
               suggestion={suggestion}
-              specificStyle={style}/>
+              specificStyle={{color: color}}/>
             </TouchableHighlight>);
   }
   _renderHeader() {
@@ -128,10 +126,25 @@ class ProductList extends Component {
     return header;
   }
   rowPressed(rowData) {
+    var [suggestion, color] = this.translateSuggestion(rowData.div[0].div.div[0].div[1].div.strong);
+    var rightReleaseCount = rowData.div[0].div.div[1].div[1].div.div[0].span.content;
+    var rightReleaseDate = rowData.div[0].div.div[1].div[1].div.div[1].a.content;
+    var rightReleaseProgress = parseFloat(rowData.div[0].div.div[1].div[1].div.div[2].div.style.replace( /[^\d\.]*/g, ''));
+    var rightRelease = [rightReleaseCount, rightReleaseProgress, rightReleaseDate];
+    var rightAverageCount = rowData.div[0].div.div[2].div[1].div[1].span.content;
+    var rightAverageProgress = parseFloat(rowData.div[0].div.div[2].div[1].div[0].div.style.replace( /[^\d\.]*/g, ''));
+    var rightAverage = [rightAverageCount, rightAverageProgress];
+    var recentReleasesDiv = rowData.div[0].div.div[3].div[1].div;
+    var recentReleases = [];
+    for(i in recentReleasesDiv) {
+      var div = recentReleasesDiv[i];
+      recentReleases.push([div.div[0].content,div.div[2].div.style.replace( /[^\d\.]*/g, ''),div.div[1].a.content]);
+    }
+    console.log('recent', recentReleases);
     this.props.navigator.push({
       title: rowData.div[0].div.div[0].div[1].h2.a.content,
       component: ProductView,
-      passProps: {data: rowData}
+      passProps: {imageURL: 'https:'+ rowData.div[0].div.div[0].div[0].div.img.src, name:rowData.div[0].div.div[0].div[1].h2.a.content, suggestion:suggestion, circle:rowData.div[0].div.div[0].div[1].div.content, suggestionColor: color, productDescription:rowData.div[0].div.div[0].div[1].ul.li, rightRelease: rightRelease, rightAverage: rightAverage, recentReleases: recentReleases}
     });
   }
   render() {
