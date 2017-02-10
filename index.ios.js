@@ -136,7 +136,7 @@ class ProductList extends Component {
     var rightAverage = [rightAverageCount, rightAverageProgress];
 
     var recentReleases = [];
-    if(rowData.div[0].div.div[0].div[1].h2.a.content=='MacBook') {
+    if(rowData.div[0].div.div[0].div[1].h2.a.content=='MacBook' || rowData.div[0].div.div[0].div[1].h2.a.content=='12.9" iPad Pro') {
       //由于MacBook历史上只发布过一版，故特殊对待
       recentReleases.push([rowData.div[0].div.div[3].div[1].div.div[0].content,rowData.div[0].div.div[3].div[1].div.div[2].div.style.replace( /[^\d\.]*/g, ''),rowData.div[0].div.div[3].div[1].div.div[1].a.content]);
     }else {
