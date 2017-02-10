@@ -74,15 +74,12 @@ var styles = StyleSheet.create({
     flex: 2,
   },above: {
     flex: 1,
-    // flexDirection: 'row',
-    // overflow: 'hidden',
     margin: 20
   },aroundSuggestion: {
     flexDirection: 'row',
     borderBottomColor: '#eaeaea',
     borderBottomWidth: 1 / PixelRatio.get(),
     padding: 5,
-    // borderWidth: 1,
   },flow: {
     flexDirection: 'row',
     flex: 1,
