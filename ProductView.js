@@ -39,17 +39,17 @@ class ProductView extends Component {
         break;
       case 1:
         return(
-          <ProductProgressRow data = {this.props.rightRelease} startString='最近一次发布于' secondString='已经过去'/>
+          <ProductProgressRow data = {this.props.rightRelease} startString='最近一次发布于' secondString='已经过去' progressTintColor = {this.props.suggestionColor}/>
         );
         break;
       case 2:
         return(
-          <ProductProgressRow data = {this.props.rightAverage} startString='平均发布周期'/>
+          <ProductProgressRow data = {this.props.rightAverage} startString='平均发布周期' progressTintColor = '#808080'/>
         );
         break;
       default:
         return(
-          <ProductProgressRow data = {this.props.recentReleases[rowData-3]} startString='历史发布于' secondString='历时'/>
+          <ProductProgressRow data = {this.props.recentReleases[rowData-3]} startString='历史发布于' secondString='历时' progressTintColor='#D8D8D8'/>
         );
         break;
     }

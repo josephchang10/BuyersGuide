@@ -108,6 +108,8 @@ var styles = StyleSheet.create({
     flex: 1,
     height: 200,
     resizeMode: 'contain',
+    marginLeft: 20,
+    marginRight: 20,
   }, suggestion: {
     marginTop: 30,
     marginBottom: 10,
