@@ -12,6 +12,7 @@ import {
 export default class ProductImageRow extends Component {
   
   translate(origin) {
+    console.log('is going to translate' + origin);
     switch(origin){
       case ' Just Updated':
         return '刚刚更新';
@@ -34,8 +35,8 @@ export default class ProductImageRow extends Component {
       case "Apple Watch Series 2 launched on September 16, 2016 with GPS, 50-meter water resistance with swimming support, a brighter display, and a faster processor. New band options could arrive in the spring of 2017, but a more substantial upgrade isn't expected until the fall.":
         return 'Apple Watch Series 于 2016 年 9 月 16 日推出，带有GPS、50米防水性游泳支持、更亮的显示屏和更快的处理器。新的表带选择可能在 2017 年春季推出，但是在秋天之前不会有更大幅度的升级。';
         break;
-      case "Apple's long-awaited fourth-generation Apple TV features an A8 processor and 32 to 64GB of storage, along with a touch-based remote control that doubles as a gaming controller. It has a brand new operating system, \"tvOS,\" which includes deep Siri integration and a full App Store.":
-        return '苹果期待已久的第四代 Apple TV 配备A8处理器和32到64GB的存储空间，以及一个触摸式遥控器，可兼作游戏控制器。它有一个全新的操作系统“tvOS”，其中包括深度Siri集成和一个完整的App Store。';
+      case "Apple's long-awaited fourth-generation Apple TV features an A8 processor and 32 to 64GB of storage, along with a touch-based remote control that doubles as a gaming controller. It has a brand new operating system, \"tvOS,\" which includes deep Siri integration and a full App Store. ":
+        return '苹果备受瞩目的第四代 Apple TV 配备了 A8 处理器和 32 到 64GB 的存储空间，以及一个触摸式遥控器，可兼作游戏控制器。它有一个全新的操作系统 “tvOS”，其中包括深度 Siri 集成和一个完整的 App Store。';
         break;
       default:
         return origin;

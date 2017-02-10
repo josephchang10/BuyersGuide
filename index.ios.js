@@ -162,6 +162,7 @@ class ProductList extends Component {
           dataSource={this.state.dataSource}
           renderRow={this._renderRow.bind(this)}
           renderHeader={this._renderHeader.bind(this)}
+          enableEmptySections={true}
         />
       </View>
     );
