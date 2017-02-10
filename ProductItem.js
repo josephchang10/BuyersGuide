@@ -7,7 +7,6 @@ import {
   ListView,
   PixelRatio
 } from 'react-native';
-import FitImage from 'react-native-fit-image';
 
 const styles = StyleSheet.create({
   productItem: {
