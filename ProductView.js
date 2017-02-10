@@ -60,37 +60,13 @@ class ProductView extends Component {
       <ListView
         dataSource = {this.state.dataSource}
         renderRow = {this._renderRow.bind(this)}
+        style= {{marginBottom: 20}}
       />
-    // <View style={styles.container}>
-    //   <View style={styles.above}>
-    //     <Image source={{uri: this.props.imageURL}} style={styles.image}/>
-    //     <View style={styles.info}>
-    //       <View style={[styles.aroundSuggestion, {borderColor: this.props.suggestionColor}]}>
-    //         <Text>{this.props.suggestion}</Text>
-    //         <Text>{this.props.circle}</Text>
-    //       </View>
-    //       <Text>
-    //         {this.props.productDescription}
-    //       </Text>
-    //     </View>
-    //   </View>
-    //   <View style={styles.flow}>
-    //     <Text>自从上次发布已经</Text>
-    //     <Text>{this.props.rightRelease[0]}天</Text>
-    //   </View>
-    //   <View style={styles.flow}>
-    //     <Text>平均发布时长</Text>
-    //     <Text>{this.props.rightAverage[0]}天</Text>
-    //   </View>
-    // </View>
   )}
 }
 
 var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 65,
-  },image: {
+  image: {
     flex: 1,
     resizeMode: 'contain',
     margin: 10
