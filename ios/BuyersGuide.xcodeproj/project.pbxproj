@@ -1009,7 +1009,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = social.street.BuyersGuide;
+				PRODUCT_BUNDLE_IDENTIFIER = social.street.buyersguide;
 				PRODUCT_NAME = BuyersGuide;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1028,7 +1028,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = social.street.BuyersGuide;
+				PRODUCT_BUNDLE_IDENTIFIER = social.street.buyersguide;
 				PRODUCT_NAME = BuyersGuide;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
